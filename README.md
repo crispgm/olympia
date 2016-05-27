@@ -1,5 +1,7 @@
 # Omdify
 
+[![Join the chat at https://gitter.im/crispgm/omdify](https://badges.gitter.im/crispgm/omdify.svg)](https://gitter.im/crispgm/omdify?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Omdify is a tool which hacks on Olympus OM-D in Wi-Fi mode, inspired by [stv0g/libqt-omd](https://github.com/stv0g/libqt-omd).
 
 # Introduction
