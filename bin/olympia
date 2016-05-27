@@ -10,7 +10,7 @@ end
 
 if argv.include?("--version")
     require_relative "../lib/olympia/version"
-    puts "Olympia #{Omd::VERSION}"
+    puts "Olympia #{Olympia::VERSION}"
     exit 0
 end
 
@@ -34,4 +34,12 @@ begin
         about
     end
 
+    def list
+        require_relative "../lib/olympia/camera"
+        Olympia::Camera.getPhotoList
+    end
+
+    get '/list' do
+        list
+    end
 end
