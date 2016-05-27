@@ -12,27 +12,27 @@ Omdify provides a web-based UI to get photos managed between local and the camer
     * Ruby
     * Gems
 
-1. Install Ruby
+* Install Ruby
 
 ```
 brew install ruby
 ```
 
-2. Install RubyGems
+* Install RubyGems
 
-3. Install sinatra
+* Install sinatra
 
 ```
 sudo gem install sinatra
 ```
 
-4. Get Omdify
+* Get Omdify
 
 ```
 git clone https://github.com/crispgm/omdify
 ```
 
-5. Start work
+* Start work
 
 ```
 cd omdify/bin
