@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+argv = ARGV.dup
+argv_extra = []
+
+if idx = argv.index("--")
+    argv_extra = argv.slice(idx+1, argv.length-2)
+    argv = argv.slice(0, idx)
+end
+
+if argv.include?("--version")
+    require_relative "../lib/omd/version"
+    puts "Omdify #{Omd::VERSION}"
+    exit 0
+end
+
+begin
+
+puts ""
+
+end
