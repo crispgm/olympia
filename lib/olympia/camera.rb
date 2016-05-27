@@ -28,16 +28,25 @@ module Olympia
             end
         end
 
-        def self.getImgList(path = '/DCIM')
+        def self.get_imglist(path = '/DCIM')
             get('/get_imglist', 'DIR=' + path)
         end
 
-        def self.getThumbnail(imgName)
+        def self.parse_list(body)
+            if body.start_with?("VER_100")
+                rawlist = body[8, body.length]
+                linelist = rawlist.split("\n")
+            else
+                'Olympia: NO BODY MARK'
+        end
+
+        def self.get_thumbnail(path)
+            get('/get_thumbnail', 'DIR=' + path)
         end
 
         # get_caminfo
         # actually, it returns only a model name in the response body
-        def self.getCamInfo
+        def self.get_caminfo
             get('/get_caminfo')
         end
     end

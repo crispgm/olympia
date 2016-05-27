@@ -24,6 +24,29 @@ begin
     set :bind, '0.0.0.0'
     set :port, 9494
 
+    get '/' do
+        home
+    end
+
+    get '/home' do
+        home
+    end
+
+    get '/about' do
+        about
+    end
+
+    get '/albums' do
+    end
+
+    get '/list' do
+        list
+    end
+
+    get '/info' do
+        info
+    end
+
     def home
         caminfo = Olympia::Camera.getCamInfo
         if caminfo.eql? "Olympia: NET ERROR"
@@ -36,27 +59,11 @@ begin
         "About"
     end
 
-    get '/' do
-        home
-    end
-
-    get '/about' do
-        about
-    end
-
     def list
-        Olympia::Camera.getImgList
-    end
-
-    get '/list' do
-        list
+        Olympia::Camera.get_imglist
     end
 
     def info
-        Olympia::Camera.getCamInfo
-    end
-
-    get '/info' do
-        info
+        Olympia::Camera.get_caminfo
     end
 end
