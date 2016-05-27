@@ -14,32 +14,12 @@ Olympia provides a web-based UI to get photos managed between local and the came
     * Ruby
     * Gems
 
-* Install Ruby
+* Quick Guide
 
 ```
-brew install ruby
-```
+gem install olympia
 
-* Install RubyGems
-
-* Install sinatra
-
-```
-sudo gem install sinatra
-```
-
-* Get Olympia
-
-```
-git clone https://github.com/crispgm/Olympia
-```
-
-* Start work
-
-```
-cd olympia/bin
-
-./olympia
+olympia
 ```
 
 # Compatible Cameras
