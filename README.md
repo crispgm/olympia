@@ -1,10 +1,10 @@
-# Omdify
+# Olympia
 
-Omdify is a tool which hacks on Olympus OM-D in Wi-Fi mode, inspired by [stv0g/libqt-omd](https://github.com/stv0g/libqt-omd).
+Olympia is a tool which hacks on Olympus OM-D in Wi-Fi mode, inspired by [stv0g/libqt-omd](https://github.com/stv0g/libqt-omd).
 
 # Introduction
 
-Omdify provides a web-based UI to get photos managed between local and the camera.
+Olympia provides a web-based UI to get photos managed between local and the camera.
 
 # Installation
 
@@ -26,18 +26,18 @@ brew install ruby
 sudo gem install sinatra
 ```
 
-* Get Omdify
+* Get Olympia
 
 ```
-git clone https://github.com/crispgm/omdify
+git clone https://github.com/crispgm/Olympia
 ```
 
 * Start work
 
 ```
-cd omdify/bin
+cd olympia/bin
 
-./omdify
+./olympia
 ```
 
 # Compatible Cameras

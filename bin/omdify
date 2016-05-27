@@ -16,6 +16,9 @@ end
 
 begin
 
-puts ""
+require_relative '../lib/server/local_server'
+
+ls = Server::LocalServer.new
+ls.handle
 
 end
