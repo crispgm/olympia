@@ -9,16 +9,15 @@ if idx = argv.index("--")
 end
 
 if argv.include?("--version")
-    require_relative "../lib/omd/version"
-    puts "Omdify #{Omd::VERSION}"
+    require_relative "../lib/olympia/version"
+    puts "Olympia #{Omd::VERSION}"
     exit 0
 end
 
 begin
 
-require_relative '../lib/server/local_server'
+require_relative '../lib/server'
 
-ls = Server::LocalServer.new
-ls.handle
+Server::Server.new
 
 end
