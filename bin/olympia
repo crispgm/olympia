@@ -17,9 +17,19 @@ end
 begin
 
     require 'sinatra'
+    require_relative "../lib/olympia/camera"
+
+    set :public_folder, settings.root + '/../public'
+    set :views, settings.root + '/../templates'
+    set :bind, '0.0.0.0'
+    set :port, 9494
 
     def home
-        "Index"
+        caminfo = Olympia::Camera.getCamInfo
+        if caminfo.eql? "Olympia: NET ERROR"
+            caminfo = "&lt;Device Not Connected&gt;"
+        end
+        erb :index, :locals => {:title => 'Home', :caminfo => caminfo}
     end
 
     def about
@@ -35,11 +45,18 @@ begin
     end
 
     def list
-        require_relative "../lib/olympia/camera"
-        Olympia::Camera.getPhotoList
+        Olympia::Camera.getImgList
     end
 
     get '/list' do
         list
+    end
+
+    def info
+        Olympia::Camera.getCamInfo
+    end
+
+    get '/info' do
+        info
     end
 end
