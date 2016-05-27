@@ -16,8 +16,22 @@ end
 
 begin
 
-require_relative '../lib/server'
+    require 'sinatra'
 
-Server::Server.new
+    def home
+        "Index"
+    end
+
+    def about
+        "About"
+    end
+
+    get '/' do
+        home
+    end
+
+    get '/about' do
+        about
+    end
 
 end
