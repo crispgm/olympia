@@ -24,6 +24,8 @@ begin
     set :bind, '0.0.0.0'
     set :port, 9494
 
+    $camera = Olympia::Camera.new
+
     get '/' do
         home
     end
@@ -48,7 +50,7 @@ begin
     end
 
     def home
-        caminfo = Olympia::Camera.getCamInfo
+        caminfo = $camera.get_caminfo
         if caminfo.eql? "Olympia: NET ERROR"
             caminfo = "&lt;Device Not Connected&gt;"
         end
@@ -60,10 +62,10 @@ begin
     end
 
     def list
-        Olympia::Camera.get_imglist
+        $camera.get_imglist
     end
 
     def info
-        Olympia::Camera.get_caminfo
+        $camera.get_caminfo
     end
 end
