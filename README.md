@@ -10,12 +10,6 @@ Olympia provides a web-based UI to get photos managed between local and the came
 
 # Installation
 
-* Requirements
-    * Ruby
-    * Gems
-
-* Quick Guide
-
 ```
 gem install olympia
 
