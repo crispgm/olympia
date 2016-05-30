@@ -7,7 +7,7 @@ module Olympia
 
         require 'net/http'
 
-        def self.get(req, params = '')
+        def get(req, params = '')
             if params.length > 0
                 rawuri = PROTOCOL + IP + req + '.cgi' + '?' + params
             else
@@ -28,27 +28,36 @@ module Olympia
             end
         end
 
-        def self.get_imglist(path = '/DCIM')
+        def get_imglist(path = '/DCIM')
             get('/get_imglist', 'DIR=' + path)
         end
 
-        def self.parse_list(body)
+        def parse_list(body)
+            # parse mark on top of body
             if body.start_with?("VER_100")
                 rawlist = body[8, body.length]
                 linelist = rawlist.split("\n")
             else
-                'Olympia: NO BODY MARK'
+                return 'Olympia: NO BODY MARK'
+            end
+            # parse list
+            linelist.each do |line|
+                sections = line.split(',')
+                if sections.length != 6
+                    return 'Olympia: SECTION NUM ERROR'
+                end
+                sections.each { |section| puts section }
+            end
         end
 
-        def self.get_thumbnail(path)
+        def get_thumbnail(path)
             get('/get_thumbnail', 'DIR=' + path)
         end
 
         # get_caminfo
         # actually, it returns only a model name in the response body
-        def self.get_caminfo
+        def get_caminfo
             get('/get_caminfo')
         end
     end
-
 end
