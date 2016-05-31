@@ -68,7 +68,7 @@ Input:
 ```
 GET /get_resizeimg?DIR=$path&size=$size
 
-# $size: 1024 | 1600 | 1920 | 2048, and it can be different from cameras.
+$size: 1024 | 1600 | 1920 | 2048, and it can be different from cameras.
 ```
 
 Output:
@@ -126,7 +126,7 @@ Input:
 ```
 GET /exec_shutter.cgi?com=$com
 
-# $com: 1stpush, 2ndpush, 1st2ndpush, 2nd1strelease, 2ndrelease, 1strelease
+$com: 1stpush | 2ndpush | 1st2ndpush | 2nd1strelease | 2ndrelease | 1strelease
 ```
 
 Output:
