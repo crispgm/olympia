@@ -6,11 +6,11 @@ The version of this API is ```VER_100```, due to the return value of some API.
 
 ### Request
 
-Protocol: HTTP
+Protocol: ```HTTP```
 
 Host: ```http://192.168.0.10/```
 
-The request type is ```GET``` when the API begins with ```get_```.
+The request type is ```GET``` if the API begins with ```get_```.
 
 ### Response
 
