@@ -10,7 +10,7 @@ Protocol: ```HTTP```
 
 Host: ```http://192.168.0.10/```
 
-The request type is ```GET``` if the API begins with ```get_```.
+All the request type is ```GET```.
 
 ### Response
 
@@ -22,8 +22,25 @@ Get command list of camera, which is a XML format API specification.
 
 Input:
 ```
-GET /get_commandlist
+GET /get_commandlist.cgi
 ```
+
+Output: OI Share version, support functions and API specification in XML.
+
+## get\_connectmode
+
+Get connect mode.
+
+Input:
+```
+GET /get_connectmode.cgi
+```
+
+Output:
+```
+```
+
+## switch\_cammode
 
 ## get\_caminfo
 
@@ -31,7 +48,7 @@ Get camera info, model name only.
 
 Input:
 ```
-GET /get_caminfo
+GET /get_caminfo.cgi
 ```
 
 Output:
@@ -39,7 +56,30 @@ Output:
 E-M5 Mark II
 ```
 
+## exec\_pwolf
+
+## get\_resizeimg
+
+Get resized images.
+
+Input:
+```
+GET /get_resizeimg?DIR=$path&size=$size
+
+$size: 1024 | 1600 | 1920 | 2048, and it can be different from cameras.
+```
+
+Output:
+```
+```
+
+## get\_movplaytime
+
+## get\_rsvimglist
+
 ## get\_imglist
+
+Get images list by path. Folders will also be returned in the list
 
 Input:
 ```
@@ -52,3 +92,42 @@ Output:
 
 ## get\_rsvimglist
 ## get\_thumbnail
+
+## get\_screennail
+
+## exec\_takemotion
+
+## exec\_takemisc
+
+## get\_camprop
+
+## set\_camprop
+
+## get\_activate
+
+## set\_utctimediff
+
+## get\_gpsdivunit
+
+## get\_unusedcapacity
+
+## get\_dcffilenum
+
+## req\_attachexifgps
+
+## req\_storegpsinfo
+
+## exec\_shutter
+
+Execute shutter(take shot).
+
+Input:
+```
+GET /exec_shutter.cgi?com=$com
+
+$com: 1stpush | 2ndpush | 1st2ndpush | 2nd1strelease | 2ndrelease | 1strelease
+```
+
+Output:
+```
+```
