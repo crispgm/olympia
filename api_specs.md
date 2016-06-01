@@ -22,12 +22,16 @@ The errors are unknown yet.
 
 ## get\_commandlist
 
+Get command list of camera, which is a XML format API specification.
+
 Input:
 ```
 GET /get_commandlist
 ```
 
 ## get\_caminfo
+
+Get camera info, model name only.
 
 Input:
 ```
@@ -50,4 +54,5 @@ Output:
 ```
 ```
 
+## get\_rsvimglist
 ## get\_thumbnail
