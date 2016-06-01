@@ -16,10 +16,6 @@ The request type is ```GET``` if the API begins with ```get_```.
 
 The response type can be either ```text/plain``` or XML, according to different API. And the text response is text based word or list.
 
-### Errors
-
-The errors are unknown yet.
-
 ## get\_commandlist
 
 Get command list of camera, which is a XML format API specification.
