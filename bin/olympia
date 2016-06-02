@@ -41,23 +41,44 @@ begin
     get '/albums' do
     end
 
+    get '/remote' do
+        erb :remote, :locals => {:title => 'Remote Control'}
+    end
+
     get '/list' do
         list
     end
 
-    get '/info' do
-        info
+    get '/settings' do
+    end
+
+    get '/switch_play' do
+        switch_play
+    end
+
+    get '/switch_shutter' do
+        switch_shutter
     end
 
     def home
-        #cam_info = $camera.get_caminfo
-        cam_info = 'camtest'
-        connect_mode = 'aaa'
+        cam_info = $camera.get_caminfo
+        connect_mode = $camera.get_connectmode
+        activate = $camera.get_activate
+        unused_capacity = $camera.get_unusedcapacity
+        dcf_filenum = $camera.get_dcffilenum
+        #cam_info = 'camtest'
+        #connect_mode = 'aaa'
         props = { :Aperture => '1.2', :ShutterSpeed => '1/2000', :ISO => '200', :CameraMode => 'AperturePrior' }
         if cam_info.eql? "Olympia: NET ERROR"
             cam_info = "&lt;Device Not Connected&gt;"
         end
-        erb :index, :locals => {:title => 'Home', :cam_info => cam_info, :connect_mode => connect_mode, :props => props}
+        erb :index, :locals => {:title => 'Home',
+                                :cam_info => cam_info,
+                                :connect_mode => connect_mode,
+                                :activate => activate,
+                                :unused_capacity => unused_capacity,
+                                :dcf_filenum => dcf_filenum,
+                                :props => props}
     end
 
     def about
@@ -68,7 +89,11 @@ begin
         $camera.get_imglist
     end
 
-    def info
-        $camera.get_caminfo
+    def switch_play
+        $camera.switch_cammode('play')
+    end
+
+    def switch_shutter
+        $camera.switch_cammode('shutter')
     end
 end
