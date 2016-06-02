@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= title %> - Olympia</title>
+<link href="/style.css" rel="stylesheet">
+<script src="/jquery-2.0.3.min.js"></script>
+</head>
+  <body>
+    <div id="title">
+      <a href="/">Olympia Camera Manager</a>
+    </div>
+    <nav>
+      <div><a href="/home">Home</a></div>
+      <div><a href="/album">Albums</a></div>
+      <div><a href="/remote">Remote Control</a></div>
+      <div><a href="/setting">Settings</a></div>
+      <div><a href="/about">About</a></div>
+    </nav>
+    <div id="mainframe">
+      <div class="page-title">
+        Remote Control
+      </div>
+      <div class="flex-container">
+        <div class="info-content info-title">
+          Mode
+        </div>
+        <div class="info-content">
+          <button name="switch-play">Play</button>
+          <button name="switch-shutter">Shutter</button>
+        </div>
+      </div>
+    </div>
+    <footer>
+      Copyright &copy; Olympia, 2016.
+    </footer>
+    <script>
+    $("button[name='switch-play']").click(function(){
+      $.get('/switch_play', function(data){
+      });
+    });
+    $("button[name='switch-shutter']").click(function(){
+      $.get('/switch_shutter', function(data){
+      });
+    });
+    </script>
+  </body>
+</html>
