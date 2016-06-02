@@ -6,6 +6,7 @@ module Olympia
         IP       = '192.168.0.10'
 
         require 'net/http'
+        require 'rexml/document'
 
         def get(req, params = '')
             if params.length > 0
@@ -59,7 +60,57 @@ module Olympia
         # get_caminfo
         # actually, it returns only a model name in the response body
         def get_caminfo
-            get('/get_caminfo')
+            xml = get('/get_caminfo')
+
+            doc = REXML::Document.new xml
+            return doc.root.elements['model'].text
+        end
+
+        # get_connectmode
+        def get_connectmode
+            xml = get('/get_connectmode')
+
+            doc = REXML::Document.new xml
+            return doc.root.text
+        end
+
+        # get_activate
+        def get_activate
+            xml = get('/get_activate')
+
+            doc = REXML::Document.new xml
+            return doc.root.text
+        end
+
+        def get_gpsdivunit
+            xml = get('/get_gpsdivunit')
+
+            doc = REXML::Document.new xml
+            return doc.root.text
+        end
+
+        def get_unusedcapacity
+            xml = get('/get_unusedcapacity')
+
+            doc = REXML::Document.new xml
+            return doc.root.text
+        end
+
+        def get_dcffilenum
+            xml = get('/get_dcffilenum')
+
+            doc = REXML::Document.new xml
+            return doc.root.text
+        end
+
+        # power off
+        def exec_pwoff
+            get('/exec_pwoff')
+        end
+
+        # switch mode
+        def switch_cammode(mode = 'play')
+            get('/switch_cammode', 'mode=' + mode)
         end
     end
 end
