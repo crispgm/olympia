@@ -46,7 +46,9 @@ module Olympia
                 if sections.length != 6
                     return 'Olympia: SECTION NUM ERROR'
                 end
-                sections.each { |section| puts section }
+                sections.each do |section|
+                    puts section
+                end
             end
         end
 

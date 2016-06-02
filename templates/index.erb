@@ -4,15 +4,56 @@
 <title><%= title %> - Olympia</title>
 <link href="/style.css" rel="stylesheet">
 </head>
-<body>
-<nav>
-    Olympia
-</nav>
-<div>
-    Model: <%= caminfo %>
-</div>
-<footer>
-    Copyright &copy; Olympia, 2016.
-</footer>
-</body>
+  <body>
+    <div id="title">
+      <a href="/">Olympia Camera Manager</a>
+    </div>
+    <nav>
+      <div><a href="/home">Home</a></div>
+      <div><a href="/album">Albums</a></div>
+      <div><a href="/remote">Remote Control</a></div>
+      <div><a href="/setting">Settings</a></div>
+      <div><a href="/about">About</a></div>
+    </nav>
+    <div id="mainframe">
+      <div class="page-title">
+        Camera Info
+      </div>
+      <div class="flex-container">
+        <div class="info-content info-title">
+          Model
+        </div>
+        <div class="info-content">
+          <%= cam_info %>
+        </div>
+      </div>
+      <div class="flex-container">
+        <div class="info-content info-title">
+          Connect Mode
+        </div>
+        <div class="info-content">
+          <%= connect_mode %>
+        </div>
+      </div>
+      <div class="flex-container">
+        <div class="info-content info-title">
+          Properties
+        </div>
+        <div class="info-content">
+          <table>
+            </tr>
+            <% props.each do |key, value| %>
+            <tr>
+              <td><%= key %></td>
+              <td><%= value %></td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+    <footer>
+      Copyright &copy; Olympia, 2016.
+    </footer>
+  </body>
 </html>

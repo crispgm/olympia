@@ -50,11 +50,14 @@ begin
     end
 
     def home
-        caminfo = $camera.get_caminfo
-        if caminfo.eql? "Olympia: NET ERROR"
-            caminfo = "&lt;Device Not Connected&gt;"
+        #cam_info = $camera.get_caminfo
+        cam_info = 'camtest'
+        connect_mode = 'aaa'
+        props = { :Aperture => '1.2', :ShutterSpeed => '1/2000', :ISO => '200', :CameraMode => 'AperturePrior' }
+        if cam_info.eql? "Olympia: NET ERROR"
+            cam_info = "&lt;Device Not Connected&gt;"
         end
-        erb :index, :locals => {:title => 'Home', :caminfo => caminfo}
+        erb :index, :locals => {:title => 'Home', :cam_info => cam_info, :connect_mode => connect_mode, :props => props}
     end
 
     def about
