@@ -23,9 +23,6 @@ module Olympia
                 http.add_field('User-Agent', 'OlympusCameraKit')
                 http.add_field('Referer', '')
 
-                p http
-                exit 0
-
                 resp = http.start() {|http|
                     http.get(url.path)
                 }
