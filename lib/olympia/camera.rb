@@ -20,6 +20,12 @@ module Olympia
                 http = Net::HTTP.new(url.host, url.port)
                 http.read_timeout = 5
                 http.open_timeout = 1
+                http.add_field('User-Agent', 'OlympusCameraKit')
+                http.add_field('Referer', '')
+
+                p http
+                exit 0
+
                 resp = http.start() {|http|
                     http.get(url.path)
                 }
@@ -61,46 +67,64 @@ module Olympia
         # actually, it returns only a model name in the response body
         def get_caminfo
             xml = get('/get_caminfo')
-
-            doc = REXML::Document.new xml
-            return doc.root.elements['model'].text
+            begin
+                doc = REXML::Document.new xml
+                return doc.root.elements['model'].text
+            rescue
+                return 'Olympia: XML ERROR'
+            end
         end
 
         # get_connectmode
         def get_connectmode
             xml = get('/get_connectmode')
-
-            doc = REXML::Document.new xml
-            return doc.root.text
+            begin
+                doc = REXML::Document.new xml
+                return doc.root.text
+            rescue
+                return 'Olympia: XML ERROR'
+            end
         end
 
         # get_activate
         def get_activate
             xml = get('/get_activate')
-
-            doc = REXML::Document.new xml
-            return doc.root.text
+            begin
+                doc = REXML::Document.new xml
+                return doc.root.text
+            rescue
+                return 'Olympia: XML ERROR'
+            end
         end
 
         def get_gpsdivunit
             xml = get('/get_gpsdivunit')
-
-            doc = REXML::Document.new xml
-            return doc.root.text
+            begin
+                doc = REXML::Document.new xml
+                return doc.root.text
+            rescue
+                return 'Olympia: XML ERROR'
+            end
         end
 
         def get_unusedcapacity
             xml = get('/get_unusedcapacity')
-
-            doc = REXML::Document.new xml
-            return doc.root.text
+            begin
+                doc = REXML::Document.new xml
+                return doc.root.text
+            rescue
+                return 'Olympia: XML ERROR'
+            end
         end
 
         def get_dcffilenum
             xml = get('/get_dcffilenum')
-
-            doc = REXML::Document.new xml
-            return doc.root.text
+            begin
+                doc = REXML::Document.new xml
+                return doc.root.text
+            rescue
+                return 'Olympia: XML ERROR'
+            end
         end
 
         # power off
@@ -111,6 +135,11 @@ module Olympia
         # switch mode
         def switch_cammode(mode = 'play')
             get('/switch_cammode', 'mode=' + mode)
+        end
+
+        # shutter
+        def exec_shutter(com)
+            get('/exec_shutter', 'com=' + com)
         end
     end
 end
