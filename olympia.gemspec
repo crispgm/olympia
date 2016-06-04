@@ -19,9 +19,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'sinatra'
   s.add_development_dependency 'minitest'
 
-  root_path = File.dirname(__FILE__)
-  all_files = Dir.chdir(root_path) { Dir.glob("**/{*,.*}") }
-  all_files.select! {|file| file.start_with?('bin/') || file.start_with?('lib/') || file.start_with?('public/') || file.start_with?('templates/')}
+  all_files = `git ls-files -z`.split("\x0")
+  all_files.select! {|file| file.start_with?('bin/') || file.start_with?('lib/') || file.start_with?('public/') || file.start_with?('templates/') || file.start_with?('tests/')}
   s.files         = all_files
   s.executables   = ['olympia']
   s.require_path  = 'lib'
