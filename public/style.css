@@ -51,14 +51,12 @@ a:hover{
 .flex-container{
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 100%;
 }
 .page-title{
   font-size: 32px;
-  width: 100%;
   margin-bottom: 80px;
   margin-left: 80px;
 }
@@ -73,6 +71,7 @@ a:hover{
   font-size: 20px;
   margin-bottom: 20px;
   padding-left: 20px;
+  max-width: 740px;
 }
 table{
     border-collapse: collapse;

@@ -61,17 +61,26 @@ begin
   end
 
   def home
+    # fetch info
     cam_info = $camera.get_caminfo
-    connect_mode = $camera.get_connectmode
-    activate = $camera.get_activate
-    unused_capacity = $camera.get_unusedcapacity
-    dcf_filenum = $camera.get_dcffilenum
-    #cam_info = 'camtest'
-    #connect_mode = 'aaa'
-    props = { :Aperture => '1.2', :ShutterSpeed => '1/2000', :ISO => '200', :CameraMode => 'AperturePrior' }
+    connect_mode = '-'
+    activate = '-'
+    unused_capacity = '-'
+    dcf_filenum = '-'
+    props = {:Aperture => '-', :ShutterSpeed => '-', :ISO => '-', :CameraMode => '-'}
+
+    # exceptions
     if cam_info.eql? "Olympia: NET ERROR"
-        cam_info = "&lt;Device Not Connected&gt;"
+      cam_info = "&lt;Device Not Connected&gt;"
+    else
+      connect_mode = $camera.get_connectmode
+      activate = $camera.get_activate
+      unused_capacity = $camera.get_unusedcapacity
+      dcf_filenum = $camera.get_dcffilenum
+      props = { :Aperture => '1.2', :ShutterSpeed => '1/2000', :ISO => '200', :CameraMode => 'AperturePrior' }
     end
+
+    # render
     erb :index, :locals => {:title => 'Home',
                             :cam_info => cam_info,
                             :connect_mode => connect_mode,
@@ -82,7 +91,7 @@ begin
   end
 
   def about
-    "About"
+    erb :about, :locals => {:title => 'About'}
   end
 
   def list
