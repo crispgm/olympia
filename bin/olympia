@@ -4,96 +4,96 @@ argv = ARGV.dup
 argv_extra = []
 
 if idx = argv.index("--")
-    argv_extra = argv.slice(idx+1, argv.length-2)
-    argv = argv.slice(0, idx)
+  argv_extra = argv.slice(idx+1, argv.length-2)
+  argv = argv.slice(0, idx)
 end
 
 if argv.include?("--version")
-    require_relative "../lib/olympia/version"
-    puts "Olympia #{Olympia::VERSION}"
-    exit 0
+  require_relative "../lib/olympia/version"
+  puts "Olympia #{Olympia::VERSION}"
+  exit 0
 end
 
 begin
 
-    require 'sinatra'
-    require_relative "../lib/olympia/camera"
+  require 'sinatra'
+  require_relative "../lib/olympia/camera"
 
-    set :public_folder, settings.root + '/../public'
-    set :views, settings.root + '/../templates'
-    set :bind, '0.0.0.0'
-    set :port, 9494
+  set :public_folder, settings.root + '/../public'
+  set :views, settings.root + '/../templates'
+  set :bind, '0.0.0.0'
+  set :port, 9494
 
-    $camera = Olympia::Camera.new
+  $camera = Olympia::Camera.new
 
-    get '/' do
-        home
+  get '/' do
+    home
+  end
+
+  get '/home' do
+    home
+  end
+
+  get '/about' do
+    about
+  end
+
+  get '/albums' do
+  end
+
+  get '/remote' do
+    erb :remote, :locals => {:title => 'Remote Control'}
+  end
+
+  get '/list' do
+    list
+  end
+
+  get '/settings' do
+  end
+
+  get '/switch_play' do
+    switch_play
+  end
+
+  get '/switch_shutter' do
+    switch_shutter
+  end
+
+  def home
+    cam_info = $camera.get_caminfo
+    connect_mode = $camera.get_connectmode
+    activate = $camera.get_activate
+    unused_capacity = $camera.get_unusedcapacity
+    dcf_filenum = $camera.get_dcffilenum
+    #cam_info = 'camtest'
+    #connect_mode = 'aaa'
+    props = { :Aperture => '1.2', :ShutterSpeed => '1/2000', :ISO => '200', :CameraMode => 'AperturePrior' }
+    if cam_info.eql? "Olympia: NET ERROR"
+        cam_info = "&lt;Device Not Connected&gt;"
     end
+    erb :index, :locals => {:title => 'Home',
+                            :cam_info => cam_info,
+                            :connect_mode => connect_mode,
+                            :activate => activate,
+                            :unused_capacity => unused_capacity,
+                            :dcf_filenum => dcf_filenum,
+                            :props => props}
+  end
 
-    get '/home' do
-        home
-    end
+  def about
+    "About"
+  end
 
-    get '/about' do
-        about
-    end
+  def list
+    $camera.get_imglist
+  end
 
-    get '/albums' do
-    end
+  def switch_play
+    $camera.switch_cammode('play')
+  end
 
-    get '/remote' do
-        erb :remote, :locals => {:title => 'Remote Control'}
-    end
-
-    get '/list' do
-        list
-    end
-
-    get '/settings' do
-    end
-
-    get '/switch_play' do
-        switch_play
-    end
-
-    get '/switch_shutter' do
-        switch_shutter
-    end
-
-    def home
-        cam_info = $camera.get_caminfo
-        connect_mode = $camera.get_connectmode
-        activate = $camera.get_activate
-        unused_capacity = $camera.get_unusedcapacity
-        dcf_filenum = $camera.get_dcffilenum
-        #cam_info = 'camtest'
-        #connect_mode = 'aaa'
-        props = { :Aperture => '1.2', :ShutterSpeed => '1/2000', :ISO => '200', :CameraMode => 'AperturePrior' }
-        if cam_info.eql? "Olympia: NET ERROR"
-            cam_info = "&lt;Device Not Connected&gt;"
-        end
-        erb :index, :locals => {:title => 'Home',
-                                :cam_info => cam_info,
-                                :connect_mode => connect_mode,
-                                :activate => activate,
-                                :unused_capacity => unused_capacity,
-                                :dcf_filenum => dcf_filenum,
-                                :props => props}
-    end
-
-    def about
-        "About"
-    end
-
-    def list
-        $camera.get_imglist
-    end
-
-    def switch_play
-        $camera.switch_cammode('play')
-    end
-
-    def switch_shutter
-        $camera.switch_cammode('shutter')
-    end
+  def switch_shutter
+    $camera.switch_cammode('shutter')
+  end
 end
