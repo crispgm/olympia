@@ -25,7 +25,7 @@ module Olympia
         http.add_field('Referer', '')
 
         resp = http.start() {|http|
-            http.get(url.path)
+          http.get(url.path)
         }
         resp.body
       rescue

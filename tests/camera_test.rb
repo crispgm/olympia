@@ -5,9 +5,11 @@ require_relative '../lib/olympia/camera'
 
 class TestCamera < Minitest::Test
 
+  include Olympia
+
   def setup
     @camera = Olympia::Camera.new
-    WebMock.disable_net_connect!(:allow_localhost => true)
+    WebMock.disable_net_connect!
   end
 
   def test_parse_list
@@ -27,10 +29,10 @@ class TestCamera < Minitest::Test
     assert_equal('Olympia: NO BODY MARK', @camera.parse_list(body))
   end
 
-  def test_get_caminfo
-    req = stub_request(:get, '192.168.0.10/get_caminfo.cgi')
-      .to_return(status: 200, body: '<?xml version="1.0" encoding="UTF-8"?><caminfo><model>E-M5 Mark II</model></caminfo>')
+  # def test_get_caminfo
+  #   stub_request(:get, '192.168.0.10/get_caminfo.cgi')
+  #     .to_return(status: 200, body: '<?xml version="1.0" encoding="UTF-8"?><caminfo><model>E-M5 Mark II</model></caminfo>')
 
-    assert_equal('E-M5 Mark II', @camera.get_caminfo)
-  end
+  #   assert_equal('E-M5 Mark II', @camera.get_caminfo)
+  # end
 end
