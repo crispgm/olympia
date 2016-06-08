@@ -35,6 +35,11 @@ module Olympia
 
     def get_imglist(path = '/DCIM')
       body = get('/get_imglist', 'DIR=' + path)
+      # test only
+      body =  "VER_100"
+      body << "\n/DCIM,100OLYMP,0,16,18317,22048"
+      body << "\n/DCIM,101OLYMP,0,16,18317,22048"
+      # test only
       parse_list(body)
     end
 

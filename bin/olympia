@@ -52,6 +52,7 @@ begin
   end
 
   get '/settings' do
+    preference
   end
 
   # operations
@@ -106,6 +107,10 @@ begin
 
   def remote
     erb :remote, :locals => {:title => 'Remote Control'}
+  end
+
+  def preference
+    erb :settings, :locals => {:title => 'Settings'}
   end
 
   def list
