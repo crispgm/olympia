@@ -1,6 +1,6 @@
 # Olympia
 
-[![Join the chat at https://gitter.im/crispgm/olympia](https://badges.gitter.im/crispgm/olympia.svg)](https://gitter.im/crispgm/olympia?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) ![](https://travis-ci.org/crispgm/olympia.svg?branch=master)
+[![Join the chat at https://gitter.im/crispgm/olympia](https://badges.gitter.im/crispgm/olympia.svg)](https://gitter.im/crispgm/olympia?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![](https://travis-ci.org/crispgm/olympia.svg?branch=master)](https://travis-ci.org/crispgm/olympia)
 
 Olympia is a tool which hacks on Olympus OM-D in Wi-Fi mode, inspired by [stv0g/libqt-omd](https://github.com/stv0g/libqt-omd).
 
