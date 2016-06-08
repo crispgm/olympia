@@ -34,7 +34,8 @@ module Olympia
     end
 
     def get_imglist(path = '/DCIM')
-      get('/get_imglist', 'DIR=' + path)
+      body = get('/get_imglist', 'DIR=' + path)
+      parse_list(body)
     end
 
     def parse_list(body)
@@ -45,7 +46,7 @@ module Olympia
       else
         return 'Olympia: NO BODY MARK'
       end
-        
+
       # init list
       files_list = Array.new
 

@@ -26,6 +26,7 @@ begin
 
   $camera = Olympia::Camera.new
 
+  # pages
   get '/' do
     home
   end
@@ -39,10 +40,11 @@ begin
   end
 
   get '/albums' do
+    albums
   end
 
   get '/remote' do
-    erb :remote, :locals => {:title => 'Remote Control'}
+    remote
   end
 
   get '/list' do
@@ -52,6 +54,7 @@ begin
   get '/settings' do
   end
 
+  # operations
   get '/switch_play' do
     switch_play
   end
@@ -92,6 +95,17 @@ begin
 
   def about
     erb :about, :locals => {:title => 'About'}
+  end
+
+  def albums
+    imgs = $camera.get_imglist
+    imgs
+
+    erb :albums, :locals => {:title => 'Albums', :albums => imgs}
+  end
+
+  def remote
+    erb :remote, :locals => {:title => 'Remote Control'}
   end
 
   def list
