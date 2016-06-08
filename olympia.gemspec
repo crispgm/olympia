@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'sinatra'
   s.add_development_dependency 'minitest'
+  s.add_development_dependency 'webmock'
 
   all_files = `git ls-files -z`.split("\x0")
   all_files.select! {|file| file.start_with?('bin/') || file.start_with?('lib/') || file.start_with?('public/') || file.start_with?('templates/') || file.start_with?('tests/')}

@@ -44,16 +44,20 @@ module Olympia
             else
                 return 'Olympia: NO BODY MARK'
             end
+            
+            # init list
+            files_list = Array.new
+
             # parse list
             linelist.each do |line|
                 sections = line.split(',')
                 if sections.length != 6
                     return 'Olympia: SECTION NUM ERROR'
                 end
-                sections.each do |section|
-                    puts section
-                end
+                files_list << sections
             end
+
+            return files_list
         end
 
         def get_thumbnail(path)
@@ -64,6 +68,8 @@ module Olympia
         # actually, it returns only a model name in the response body
         def get_caminfo
             xml = get('/get_caminfo')
+            return xml if xml.eql? 'Olympia: NET ERROR'
+
             begin
                 doc = REXML::Document.new xml
                 return doc.root.elements['model'].text
@@ -75,6 +81,8 @@ module Olympia
         # get_connectmode
         def get_connectmode
             xml = get('/get_connectmode')
+            return xml if xml.eql? 'Olympia: NET ERROR'
+
             begin
                 doc = REXML::Document.new xml
                 return doc.root.text
@@ -86,6 +94,8 @@ module Olympia
         # get_activate
         def get_activate
             xml = get('/get_activate')
+            return xml if xml.eql? 'Olympia: NET ERROR'
+
             begin
                 doc = REXML::Document.new xml
                 return doc.root.text
@@ -96,6 +106,8 @@ module Olympia
 
         def get_gpsdivunit
             xml = get('/get_gpsdivunit')
+            return xml if xml.eql? 'Olympia: NET ERROR'
+
             begin
                 doc = REXML::Document.new xml
                 return doc.root.text
@@ -106,6 +118,8 @@ module Olympia
 
         def get_unusedcapacity
             xml = get('/get_unusedcapacity')
+            return xml if xml.eql? 'Olympia: NET ERROR'
+
             begin
                 doc = REXML::Document.new xml
                 return doc.root.text
@@ -116,6 +130,8 @@ module Olympia
 
         def get_dcffilenum
             xml = get('/get_dcffilenum')
+            return xml if xml.eql? 'Olympia: NET ERROR'
+            
             begin
                 doc = REXML::Document.new xml
                 return doc.root.text

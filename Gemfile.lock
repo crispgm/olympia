@@ -1,16 +1,25 @@
 GEM
-  remote: https://rubygems.org/
+  remote: https://ruby.taobao.org/
   specs:
+    addressable (2.4.0)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
+    hashdiff (0.3.0)
     minitest (5.9.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
     rake (0.9.6)
+    safe_yaml (1.0.4)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
     tilt (2.0.4)
+    webmock (2.1.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
 
 PLATFORMS
   ruby
@@ -19,6 +28,7 @@ DEPENDENCIES
   minitest
   rake
   sinatra
+  webmock
 
 BUNDLED WITH
    1.12.5
