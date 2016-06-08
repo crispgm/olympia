@@ -7,6 +7,7 @@ class TestCamera < Minitest::Test
 
   def setup
     @camera = Olympia::Camera.new
+    WebMock.disable_net_connect!(:allow_localhost => true)
   end
 
   def test_parse_list
@@ -27,8 +28,7 @@ class TestCamera < Minitest::Test
   end
 
   def test_get_caminfo
-    stub_request(:get, '192.168.0.10')
-      .with(body: '/get_caminfo.cgi')
+    req = stub_request(:get, '192.168.0.10/get_caminfo.cgi')
       .to_return(status: 200, body: '<?xml version="1.0" encoding="UTF-8"?><caminfo><model>E-M5 Mark II</model></caminfo>')
 
     assert_equal('E-M5 Mark II', @camera.get_caminfo)

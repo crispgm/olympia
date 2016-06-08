@@ -4,15 +4,16 @@ module Olympia
 
         PROTOCOL = 'http://'
         IP       = '192.168.0.10'
+        POSTFIX  = '.cgi'
 
         require 'net/http'
         require 'rexml/document'
 
         def get(req, params = '')
+            rawuri = PROTOCOL + IP + req + POSTFIX
+
             if params.length > 0
-                rawuri = PROTOCOL + IP + req + '.cgi' + '?' + params
-            else
-                rawuri = PROTOCOL + IP + req + '.cgi'
+                rawuri += params
             end
 
             begin
@@ -131,7 +132,7 @@ module Olympia
         def get_dcffilenum
             xml = get('/get_dcffilenum')
             return xml if xml.eql? 'Olympia: NET ERROR'
-            
+
             begin
                 doc = REXML::Document.new xml
                 return doc.root.text
