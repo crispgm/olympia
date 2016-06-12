@@ -33,16 +33,6 @@ module Olympia
       end
     end
 
-    def get_imglist(path = '/DCIM')
-      body = get('/get_imglist', 'DIR=' + path)
-      # test only
-      body =  "VER_100"
-      body << "\n/DCIM,100OLYMP,0,16,18317,22048"
-      body << "\n/DCIM,101OLYMP,0,16,18317,22048"
-      # test only
-      parse_list(body)
-    end
-
     def parse_list(body)
       # parse mark on top of body
       if body.start_with?("VER_100")
@@ -65,6 +55,16 @@ module Olympia
       end
 
       return files_list
+    end
+
+    def get_imglist(path = '/DCIM')
+      body = get('/get_imglist', 'DIR=' + path)
+      # test only
+      body =  "VER_100"
+      body << "\n/DCIM,100OLYMP,0,16,18317,22048"
+      body << "\n/DCIM,101OLYMP,0,16,18317,22048"
+      # test only
+      parse_list(body)
     end
 
     def get_thumbnail(path)

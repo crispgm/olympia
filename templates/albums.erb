@@ -20,11 +20,15 @@
         Albums
       </div>
       <div class="flex-container">
-        <div class="album-cover">
-          <% albums.each do |album| %>
-            <div><%= album %></div>
-          <% end %>
+        <div class="album-path">Path: <%= albums.first.at(0) %></div>
+      </div>
+      <div class="flex-container">
+        <% albums.each do |album| %>
+        <div class="album-item">
+          <div class="album-cover"><%= album[1] if album[1].end_with? '.JPG' %></div>
+          <div class="album-name"><%= album[1] %></div>
         </div>
+        <% end %>
       </div>
     </div>
     <footer>
