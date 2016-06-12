@@ -71,7 +71,7 @@ begin
     activate = '-'
     unused_capacity = '-'
     dcf_filenum = '-'
-    props = {:Aperture => '-', :ShutterSpeed => '-', :ISO => '-', :CameraMode => '-'}
+    props = {:Aperture => 'N/A', :ShutterSpeed => 'N/A', :ISO => 'N/A', :CameraMode => 'N/A'}
 
     # exceptions
     if cam_info.eql? "Olympia: NET ERROR"
