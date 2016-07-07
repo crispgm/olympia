@@ -1,3 +1,3 @@
 language: ruby
-rmv:
+rvm:
     - 2.0.0
