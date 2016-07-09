@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/crispgm/olympia.png?label=ready&title=Ready)](https://waffle.io/crispgm/olympia)
 # Olympia
 
 [![Join the chat at https://gitter.im/crispgm/olympia](https://badges.gitter.im/crispgm/olympia.svg)](https://gitter.im/crispgm/olympia?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
