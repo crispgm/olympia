@@ -1,3 +1,5 @@
 language: ruby
 rvm:
-    - 2.0.0
+  - 2.0.0
+notifications:
+  webhooks: https://hook.bearychat.com/=bw7pB/travis/aedf8737c217fa72c9f32a9c7f684492
