@@ -24,9 +24,9 @@ module Olympia
         http.add_field('User-Agent', 'OlympusCameraKit')
         http.add_field('Referer', '')
 
-        resp = http.start() {|http|
-          http.get(url.path)
-        }
+        resp = http.start() do |httpclient|
+          httpclient.get(url.path)
+        end
         resp.body
       rescue
         'Olympia: NET ERROR'
