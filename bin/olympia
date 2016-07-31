@@ -19,6 +19,7 @@ begin
 
   require 'sinatra'
   require_relative "../lib/olympia/camera"
+  require_relative "../lib/olympia/version"
 
   set :public_folder, settings.root + '/../public'
   set :views, settings.root + '/../templates'
@@ -96,7 +97,7 @@ begin
   end
 
   def about
-    erb :about, :locals => {:title => 'About'}
+    erb :about, :locals => {:title => 'About', :version => Olympia::VERSION}
   end
 
   def albums
