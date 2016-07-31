@@ -2,6 +2,7 @@
 
 [![Join the chat at https://gitter.im/crispgm/olympia](https://badges.gitter.im/crispgm/olympia.svg)](https://gitter.im/crispgm/olympia?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![](https://travis-ci.org/crispgm/olympia.svg?branch=master)](https://travis-ci.org/crispgm/olympia)
+[![Code Climate](https://codeclimate.com/github/crispgm/olympia/badges/gpa.svg)](https://codeclimate.com/github/crispgm/olympia)
 ![](https://img.shields.io/badge/license-MIT-blue.svg)
 [![Stories in Ready](https://badge.waffle.io/crispgm/olympia.png?label=ready&title=Ready)](https://waffle.io/crispgm/olympia)
 
