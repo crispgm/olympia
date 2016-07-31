@@ -18,7 +18,6 @@ Olympia provides a web-based UI to get photos managed between local and the came
 
     ```
     $ gem install olympia
-
     $ olympia
     ```
 
