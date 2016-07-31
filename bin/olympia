@@ -102,9 +102,9 @@ begin
 
   def albums
     imgs = $camera.get_imglist
-    imgs
-
-    erb :albums, :locals => {:title => 'Albums', :albums => imgs}
+    if imgs.is_a? Array
+      erb :albums, :locals => {:title => 'Albums', :albums => imgs}
+    end
   end
 
   def remote
