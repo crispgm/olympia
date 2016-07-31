@@ -3,6 +3,7 @@
 argv = ARGV.dup
 argv_extra = []
 
+# rubocop:disable Lint/AssignmentInCondition
 if idx = argv.index("--")
   argv_extra = argv.slice(idx+1, argv.length-2)
   argv = argv.slice(0, idx)
