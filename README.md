@@ -13,11 +13,22 @@ Olympia provides a web-based UI to get photos managed between local and the came
 
 # Installation
 
-```
-gem install olympia
+1. Install via Gem
 
-olympia
-```
+    ```
+    $ gem install olympia
+
+    $ olympia
+    ```
+
+2. Install via Git
+
+    ```
+    $ git clone https://github.com/crispgm/olympia.git
+    $ cd olympia
+    $ bundle install
+    $ bundle exec bin/olympia
+    ```
 
 # Compatible Cameras
 
