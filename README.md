@@ -1,7 +1,7 @@
 # Olympia (WIP)
 
 [![](https://travis-ci.org/dripcoffee/olympia.svg?branch=master)](https://travis-ci.org/dripcoffee/olympia)
-[![Code Climate](https://codeclimate.com/github/crispgm/dripcoffee/badges/gpa.svg)](https://codeclimate.com/github/dripcoffee/olympia)
+[![Code Climate](https://codeclimate.com/github/crispgm/olympia/badges/gpa.svg)](https://codeclimate.com/github/crispgm/olympia)
 
 Olympia is a tool which hacks on Olympus cameras in Wi-Fi mode, inspired by [stv0g/libqt-omd](https://github.com/stv0g/libqt-omd).
 
