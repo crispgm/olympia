@@ -1,5 +1,9 @@
 language: ruby
 rvm:
-  - 2.0.0
+  - 2.4.0
+env:
+  - CODECLIMATE_REPO_TOKEN: 4a3d18e723d4ee08cad15db645261022bd271353451857767580d6fe0ac13d0a
+after_success:
+  - bundle exec codeclimate-test-reporter
 notifications:
-  webhooks: https://hook.bearychat.com/=bw7pB/travis/aedf8737c217fa72c9f32a9c7f684492
+  slack: navyblue-team:ioO5diAGc5WUQVDKc5BH1UbE

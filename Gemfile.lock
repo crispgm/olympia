@@ -8,15 +8,24 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.4.0)
+    codeclimate-test-reporter (1.0.8)
+      simplecov (<= 0.13)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
+    docile (1.1.5)
     hashdiff (0.3.0)
+    json (2.1.0)
     minitest (5.9.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
     rake (0.9.6)
     safe_yaml (1.0.4)
+    simplecov (0.13.0)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.1)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -31,9 +40,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  codeclimate-test-reporter (~> 1.0.0)
   minitest
   olympia!
   rake
+  simplecov
   webmock
 
 BUNDLED WITH

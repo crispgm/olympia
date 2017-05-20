@@ -1,12 +1,6 @@
-require 'minitest/autorun'
-require 'webmock/minitest'
-
-require_relative '../lib/olympia/camera'
+require "helper"
 
 class TestCamera < Minitest::Test
-
-  include Olympia
-
   def setup
     @camera = Olympia::Camera.new
     WebMock.disable_net_connect!
