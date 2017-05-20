@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'sinatra'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'minitest'
+  s.add_development_dependency 'shoulda-context'
   s.add_development_dependency 'webmock'
 
   all_files = `git ls-files -z`.split("\x0")

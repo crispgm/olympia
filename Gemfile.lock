@@ -21,6 +21,7 @@ GEM
       rack
     rake (0.9.6)
     safe_yaml (1.0.4)
+    shoulda-context (1.2.2)
     simplecov (0.13.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -44,6 +45,7 @@ DEPENDENCIES
   minitest
   olympia!
   rake
+  shoulda-context
   simplecov
   webmock
 
