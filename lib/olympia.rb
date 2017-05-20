@@ -1,5 +1,4 @@
-class Olympia
-  def hi
-    puts "hello, world"
-  end
+module Olympia
+  require "olympia/camera"
+  require "olympia/version"
 end

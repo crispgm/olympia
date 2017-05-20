@@ -19,6 +19,7 @@
       <div class="page-title">
         Albums
       </div>
+      <% if albums.is_a? Array %>
       <div class="flex-container">
         <div class="album-path">Path: <%= albums.first.at(0) %></div>
       </div>
@@ -30,9 +31,16 @@
         </div>
         <% end %>
       </div>
+      <% else %>
+      <div class="flex-container">
+        <div class="info-content info-title">
+          Error
+        </div>
+        <div class="info-content">
+          <%= albums %>
+        </div>
+      </div>
+      <% end %>
     </div>
-    <footer>
-      Copyright &copy; Olympia, 2016.
-    </footer>
   </body>
 </html>

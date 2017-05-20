@@ -28,8 +28,8 @@ module Olympia
           h.get(url.path)
         end
         resp.body
-      # rescue
-        # 'Olympia: NET ERROR'
+      rescue
+        'Olympia: NET ERROR'
       end
     end
 
@@ -59,7 +59,6 @@ module Olympia
 
     def get_imglist(path = '/DCIM')
       body = get('/get_imglist', 'DIR=' + path)
-      p body
       # test only
       # body =  "VER_100"
       # body << "\n/DCIM,100OLYMP,0,16,18317,22048"

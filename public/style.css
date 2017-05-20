@@ -1,13 +1,15 @@
 html{
+  height: 100%;
 }
 body{
   margin: 0;
-  font-family: "Hiragino Sans GB", "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial;
-  font-size: 1em;
+  font-family: "Avenir Next", "Helvetica Neue", "Segoe UI", Helvetica, Arial;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   color: #333;
   word-wrap: break-word;
   text-align: center;
+  height: 100%;
 }
 #title{
   font-size: 42px;
@@ -22,7 +24,7 @@ nav{
   text-align: left;
   top: 120px;
   padding-left:20px;
-  font-size: 28px;
+  font-size: 20px;
   width: 320px;
 }
 footer{
@@ -40,11 +42,12 @@ a:hover{
 }
 #mainframe{
   width: 80%;
+  height: 100%;
   min-width: 360px;
   min-height: 240px;
   text-align: left;
   margin-left: 320px;
-  margin-top: 20px;
+  padding-top: 20px;
   padding-left: 20px;
   border-left: 1px navy solid;
 }
