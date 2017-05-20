@@ -7,3 +7,4 @@ after_success:
   - bundle exec codeclimate-test-reporter
 notifications:
   slack: navyblue-team:ioO5diAGc5WUQVDKc5BH1UbE
+  email: false
